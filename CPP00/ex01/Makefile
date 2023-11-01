@@ -1,8 +1,9 @@
-# CPP00-ex00
-NAME			=	megaphone
+# CPP00-ex01
+NAME			=	phonebook
 
-SRC	=	megaphone.cpp
-
+SRC	=	PhoneBook.cpp \
+		Contact.cpp \
+		main.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
@@ -18,19 +19,19 @@ RESET			=	\033[0m
 
 # Rules
 all:		$(NAME)
-			@printf "$(BLUE)==> $(CYAN)CPP00-ex00 compiled ✅\n\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP00-ex01 compiled ✅\n\n$(RESET)"
 
 $(NAME):	$(OBJS)
 			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 			@$(RM) $(OBJS)
-			@printf "\n$(BLUE)==> $(RED)Removed CPP00-ex00 🗑️\n$(RESET)"
+			@printf "\n$(BLUE)==> $(RED)Removed CPP00-ex01 🗑️\n$(RESET)"
 
 fclean:		clean
 			@$(RM) $(NAME)
 
 re:			fclean all
-			@printf "$(BLUE)==> $(CYAN)CPP00-ex00 recompiled 🔄\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP00-ex01 recompiled 🔄\n$(RESET)"
 
 .PHONY:		all clean fclean re
