@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:28:54 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/01 14:08:46 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/02 12:23:38 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ int	main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc ; i++)
 		{
-			for (int j = 0; j < (int)std::strlen(argv[i]); j++)
-				std::cout << (char)std::toupper(argv[i][j]);
+			for (int j = 0; j < int(std::strlen(argv[i])); j++)
+				std::cout << char(std::toupper(argv[i][j]));
 			std::cout << " ";
 		}
 	}
 	std::cout << std::endl;
+	return 0;
 }

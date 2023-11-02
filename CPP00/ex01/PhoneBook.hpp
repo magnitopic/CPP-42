@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:22:29 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/01 19:47:01 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/02 14:32:38 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ class PhoneBook
 {
 	private:
 		Contact	contacts[8];
+		int		added_contacts;
 
 	public:
-		void	add();
+		void	add(Contact);
 		void	search();
 		void	exit();
 };
