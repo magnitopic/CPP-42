@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:59:01 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/02 12:59:40 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/02 17:27:11 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,29 @@ Contact::Contact(std::string first_name, std::string last_name,
 	this->nick = nick;
 	this->phone_number = phone_number;
 	this->secret = secret;
+}
+
+std::string Contact::get_first_name()
+{
+	return this->first_name;
+}
+
+std::string Contact::get_last_name()
+{
+	return this->last_name;
+}
+
+std::string Contact::get_nick()
+{
+	return this->nick;
+}
+
+std::string Contact::get_phone_number()
+{
+	return this->phone_number;
+}
+
+std::string Contact::get_secret()
+{
+	return this->secret;
 }

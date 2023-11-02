@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:28:08 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/02 14:46:47 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/02 21:24:58 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Contact	new_contact()
 	std::cin >> nick;
 	std::cout << "Enter contact's Phone Number: ";
 	std::cin >> phone_number;
-	std::cout << "Enter contact's Secret: ";
+	std::cout << "Enter contact's Darkest Secret: ";
 	std::cin >> secret;
 	return Contact(first_name, last_name, nick, phone_number, secret);
 }
@@ -38,13 +38,14 @@ int	main(void)
 	PhoneBook	pb = PhoneBook();
 	std::string	input;
 
-	/* while (42)
+	std::cout << std::endl << "\033[0;35mWelcome to your PhoneBook!\033[0m" << std::endl;
+	while (true)
 	{
-		std::cout << ">> Please enter what operation you would like to perform"
-			<< std::endl << "ADD / SEARCH / EXIT" << std::endl;
-		std::cout << "--> ";
+		std::cout << std::endl << "\033[0;34m>> ";
+		std::cout << "\033[0;36mPlease enter what operation you would like to perform"
+			<< std::endl << "ADD / SEARCH / EXIT" << std::endl << "\033[0;34m--> \033[0m";
 		std::cin >> input;
-		if (input == "EXIT" || input == "exit")
+		if (input == "EXIT" || input == "exit" || std::cin.eof())
 			break;
 		if (input == "add" || input == "ADD")
 			pb.add(new_contact());
@@ -52,8 +53,8 @@ int	main(void)
 			pb.search();
 		else
 			std::cout << std::endl << "\033[0;31mError: Invalid operation\033[0m" << std::endl;
-	} */
+	}
 	
-	std::cout << "Bye!" << std::endl;
+	std::cout << "\033[0;35mBye! 👋\033[0" << std::endl;
 	return 0;
 }

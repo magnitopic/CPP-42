@@ -9,7 +9,7 @@ OBJS			= $(SRC:.cpp=.o)
 # Compiler
 CC				=	c++
 RM				=	rm -f
-CFLAGS			=	-std=c++98 -Wall -Werror -Wextra
+CFLAGS			=	-std=c++98 -Wall -Werror -Wextra -g3 -fsanitize=address
 
 # Colours
 RED				=	\033[0;31m
