@@ -6,11 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:28:08 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/03 15:41:44 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:50:43 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <string>
 
 Contact	new_contact()
 {
@@ -29,7 +30,8 @@ Contact	new_contact()
 	std::cout << "Enter contact's Phone Number: ";
 	std::cin >> phone_number;
 	std::cout << "Enter contact's Darkest Secret: ";
-	std::cin >> secret;
+	std::cin.ignore(); // add this line to clear the input buffer
+	std::getline(std::cin, secret);
 	return Contact(first_name, last_name, nick, phone_number, secret);
 }
 
