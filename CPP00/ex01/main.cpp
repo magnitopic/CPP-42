@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:28:08 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/02 21:24:58 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:41:44 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int	main(void)
 			std::cout << std::endl << "\033[0;31mError: Invalid operation\033[0m" << std::endl;
 	}
 	
-	std::cout << "\033[0;35mBye! 👋\033[0" << std::endl;
+	std::cout << "\033[0;35mBye! 👋\033[0m" << std::endl;
 	return 0;
 }
