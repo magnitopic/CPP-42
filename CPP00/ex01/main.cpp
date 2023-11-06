@@ -11,15 +11,14 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <string>
 
-Contact	new_contact()
+Contact new_contact()
 {
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nick;
-	std::string	phone_number;
-	std::string	secret;
+	std::string first_name;
+	std::string last_name;
+	std::string nick;
+	std::string phone_number;
+	std::string secret;
 
 	std::cout << "Enter contact's First Name: ";
 	std::cin >> first_name;
@@ -35,17 +34,21 @@ Contact	new_contact()
 	return Contact(first_name, last_name, nick, phone_number, secret);
 }
 
-int	main(void)
+int main(void)
 {
-	PhoneBook	pb = PhoneBook();
-	std::string	input;
+	PhoneBook pb = PhoneBook();
+	std::string input;
 
-	std::cout << std::endl << "\033[0;35mWelcome to your PhoneBook!\033[0m" << std::endl;
+	std::cout << std::endl
+			  << "\033[0;35mWelcome to your PhoneBook!\033[0m" << std::endl;
 	while (true)
 	{
-		std::cout << std::endl << "\033[0;34m>> ";
+		std::cout << std::endl
+				  << "\033[0;34m>> ";
 		std::cout << "\033[0;36mPlease enter what operation you would like to perform"
-			<< std::endl << "ADD / SEARCH / EXIT" << std::endl << "\033[0;34m--> \033[0m";
+				  << std::endl
+				  << "ADD / SEARCH / EXIT" << std::endl
+				  << "\033[0;34m--> \033[0m";
 		std::cin >> input;
 		if (input == "EXIT" || input == "exit" || std::cin.eof())
 			break;
@@ -54,9 +57,10 @@ int	main(void)
 		else if (input == "SEARCH" || input == "search")
 			pb.search();
 		else
-			std::cout << std::endl << "\033[0;31mError: Invalid operation\033[0m" << std::endl;
+			std::cout << std::endl
+					  << "\033[0;31mError: Invalid operation\033[0m" << std::endl;
 	}
-	
+
 	std::cout << "\033[0;35mBye! 👋\033[0m" << std::endl;
 	return 0;
 }

@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ZOMBIE_H_
+#define ZOMBIE_H_
+
 #include <iostream>
 
 class Zombie
@@ -22,3 +25,5 @@ public:
 	~Zombie();
 	void announce(void);
 };
+
+#endif
