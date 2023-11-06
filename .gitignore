@@ -3,4 +3,5 @@ test.cpp
 *.o
 megaphone
 phonebook
+zombies
 .vscode/
