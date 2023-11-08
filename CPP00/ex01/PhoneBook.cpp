@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:22:12 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/08 14:52:46 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/08 21:02:41 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,5 @@ void PhoneBook::search()
 				  << "Darkest Secret:\t\t" << contacts[std::stoi(index) - 1].get_secret() << std::endl;
 	}
 	else
-		std::cout << "\033[0;31mNo contacts 😔\033[0m" << std::endl;
+		std::cout << std::endl << "\033[0;31mNot a valid index\033[0m" << std::endl;
 }
