@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:22:12 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/03 15:41:37 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/08 14:52:46 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ void PhoneBook::search()
 		std::cout << std::endl
 				  << "\033[0;35mShowing inf of contact #" << index << std::endl;
 		std::cout << std::endl
-				  << "\033[0mFull Name:\t\t" << contacts[std::stoi(index) - 1].get_first_name() << std::endl;
+				  << "\033[0mFirst Name:\t\t" << contacts[std::stoi(index) - 1].get_first_name() << std::endl;
 		std::cout << std::endl
-				  << "First Name:\t\t" << contacts[std::stoi(index) - 1].get_last_name() << std::endl;
+				  << "Last Name:\t\t" << contacts[std::stoi(index) - 1].get_last_name() << std::endl;
 		std::cout << std::endl
 				  << "Nick:\t\t\t" << contacts[std::stoi(index) - 1].get_nick() << std::endl;
 		std::cout << std::endl
