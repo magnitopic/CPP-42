@@ -1,7 +1,9 @@
 # CPP01-ex05
-NAME			=	files
+NAME			=	harl
 
-SRC	=	main.cpp
+SRC	=	main.cpp \
+		Harl.cpp
+
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
