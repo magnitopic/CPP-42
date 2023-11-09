@@ -6,12 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:11:18 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/08 21:15:07 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/09 12:46:28 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_H_
-#define HARL_H_
+#ifndef HARL_HPP_
+#define HARL_HPP_
 
 #include <iostream>
 

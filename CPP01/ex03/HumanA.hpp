@@ -6,12 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:47:27 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/07 21:00:54 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/09 12:44:46 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_A_H_
-#define HUMAN_A_H_
+#ifndef HUMAN_A_HPP_
+#define HUMAN_A_HPP_
 
 #include "Weapon.hpp"
 

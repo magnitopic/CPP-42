@@ -6,12 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:59:09 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/02 17:18:31 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/09 12:44:08 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H_
-#define CONTACT_H_
+#ifndef CONTACT_HPP_
+#define CONTACT_HPP_
 
 #include <iostream>
 #include <string>

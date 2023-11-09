@@ -6,12 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:22:29 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/08 20:59:18 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/09 12:45:47 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H_
-#define PHONEBOOK_H_
+#ifndef PHONEBOOK_HPP_
+#define PHONEBOOK_HPP_
 
 #include "Contact.hpp"
 #include <cctype>
