@@ -6,39 +6,50 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:22:12 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/08 21:02:41 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:20:00 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void PhoneBook::add(Contact new_contact)
+static Contact new_contact()
 {
-	this->contacts[added_contacts % 8] = new_contact;
+	std::string first_name;
+	std::string last_name;
+	std::string nick;
+	std::string phone_number;
+	std::string secret;
+
+	std::cout << "Enter contact's First Name: ";
+	std::cin >> first_name;
+	std::cout << "Enter contact's Last Name: ";
+	std::cin >> last_name;
+	std::cout << "Enter contact's Nick: ";
+	std::cin >> nick;
+	std::cout << "Enter contact's Phone Number: ";
+	std::cin >> phone_number;
+	std::cout << "Enter contact's Darkest Secret: ";
+	std::cin.ignore(); // add this line to clear the input buffer
+	std::getline(std::cin, secret);
+	return Contact(first_name, last_name, nick, phone_number, secret);
+}
+
+void PhoneBook::add()
+{
+	this->contacts[added_contacts % 8] = new_contact();
 	added_contacts++;
 }
 
-std::string printable_data(std::string value)
+static void print_info(std::string value)
 {
-	std::string result;
-	int len;
-
-	len = value.length();
-	if (len >= 10)
-	{
-		result = value.substr(0, 9);
-		result += ".";
-	}
+	int len = value.length();
+	if (len > 10)
+		std::cout << value.substr(0, 9) << ".";
 	else
-	{
-		result = value;
-		while (len++ < 10)
-			result = " " + result;
-	}
-	return result;
+		std::cout << std::setw(10) << value;
 }
 
-void print_contacts(Contact contacts[8], int table_size)
+static void print_contacts(Contact contacts[8], int table_size)
 {
 	std::cout << "\033[0;33m┌──────────┬──────────┬──────────┬──────────┐" << std::endl
 			  << "│\033[0;35m     Index\033[0;33m│\033[0;35mFirst Name\033[0;33m│\033[0;35m"
@@ -48,13 +59,13 @@ void print_contacts(Contact contacts[8], int table_size)
 		Contact contact = contacts[i];
 		std::cout << "\033[0;33m├──────────┼──────────┼──────────┼──────────┤" << std::endl;
 		std::cout << "│\033[0m";
-		std::cout << printable_data(std::to_string(i + 1));
+		print_info(std::to_string(i + 1));
 		std::cout << "\033[0;33m│\033[0m";
-		std::cout << printable_data(contact.get_first_name());
+		print_info(contact.get_first_name());
 		std::cout << "\033[0;33m│\033[0m";
-		std::cout << printable_data(contact.get_last_name());
+		print_info(contact.get_last_name());
 		std::cout << "\033[0;33m│\033[0m";
-		std::cout << printable_data(contact.get_nick());
+		print_info(contact.get_nick());
 		std::cout << "\033[0;33m│" << std::endl;
 	}
 	std::cout << "└──────────┴──────────┴──────────┴──────────┘\033[0m" << std::endl;
