@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:11:08 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/09 19:11:31 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:54:08 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void Harl::complain(std::string level)
 
 void Harl::debug()
 {
-	std::cout << "\033[0;35mI love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
+	std::cout << "\033[0;32mI love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!\033[0m" << std::endl;
 }
 
 void Harl::info()
