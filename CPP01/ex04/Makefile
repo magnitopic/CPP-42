@@ -5,9 +5,9 @@ SRC	=	main.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
-CC				=	c++
+CXX				=	c++
 RM				=	rm -f
-CFLAGS			=	-std=c++98 -Wall -Werror -Wextra -g3 -fsanitize=address
+CXXFLAGS		=	-Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
 
 # Colours
 RED				=	\033[0;31m
@@ -20,7 +20,7 @@ all:		$(NAME)
 			@printf "$(BLUE)==> $(CYAN)CPP01-ex04 compiled ✅\n\n$(RESET)"
 
 $(NAME):	$(OBJS)
-			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 			@$(RM) $(OBJS)

@@ -6,9 +6,9 @@ SRC	=	megaphone.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
-CC				=	c++
+CXX				=	c++
 RM				=	rm -f
-CFLAGS			=	-std=c++98 -Wall -Werror -Wextra
+CXXFLAGS		=	-Wall -Werror -Wextra -std=c++98
 
 # Colours
 RED				=	\033[0;31m
@@ -21,7 +21,7 @@ all:		$(NAME)
 			@printf "$(BLUE)==> $(CYAN)CPP00-ex00 compiled ✅\n\n$(RESET)"
 
 $(NAME):	$(OBJS)
-			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 			@$(RM) $(OBJS)

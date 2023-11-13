@@ -1,9 +1,7 @@
-# CPP01-ex05
-NAME			=	harl
+# CPP02-ex00
+NAME			=	fixed
 
 SRC	=	main.cpp \
-		Harl.cpp
-
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
@@ -19,19 +17,19 @@ RESET			=	\033[0m
 
 # Rules
 all:		$(NAME)
-			@printf "$(BLUE)==> $(CYAN)CPP01-ex05 compiled ✅\n\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP02-ex00 compiled ✅\n\n$(RESET)"
 
 $(NAME):	$(OBJS)
 			@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 			@$(RM) $(OBJS)
-			@printf "\n$(BLUE)==> $(RED)Removed CPP01-ex05 🗑️\n$(RESET)"
+			@printf "\n$(BLUE)==> $(RED)Removed CPP02-ex00 🗑️\n$(RESET)"
 
 fclean:		clean
 			@$(RM) $(NAME)
 
 re:			fclean all
-			@printf "$(BLUE)==> $(CYAN)CPP01-ex05 recompiled 🔄\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP02-ex00 recompiled 🔄\n$(RESET)"
 
 .PHONY:		all clean fclean re
