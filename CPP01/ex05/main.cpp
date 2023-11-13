@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:10:51 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/10 11:56:37 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:17:00 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void info_msg(std::string msg)
 			  << std::endl;
 }
 
-int main(int argc, char **argv)
+int main(void)
 {
 	Harl harl;
 
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 	while (true)
 	{
 		std::cout << "--> ";
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (std::cin.eof())
 			break;
 		harl.complain(input);

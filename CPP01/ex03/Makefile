@@ -1,10 +1,10 @@
 # CPP01-ex03
 NAME			=	so_uncivilized
 
-SRC	=	main.cpp \
-		Weapon.cpp \
+SRC	=	Weapon.cpp \
 		HumanA.cpp \
-		HumanB.cpp
+		HumanB.cpp \
+		main.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
@@ -23,7 +23,7 @@ all:		$(NAME)
 			@printf "$(BLUE)==> $(CYAN)CPP01-ex03 compiled ✅\n\n$(RESET)"
 
 $(NAME):	$(OBJS)
-			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 			@$(RM) $(OBJS)

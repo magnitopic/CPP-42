@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:11:08 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/10 11:54:08 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:26:08 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void Harl::complain(std::string level)
 		"ERROR"
 	};
 	bool flag = 1;
-	for (int i = 0; i < valid_complaints->length() - 1; i++)
+	for (int i = 0; i < int(valid_complaints->length()) - 1; i++)
 	{
 		if (level.compare(valid_complaints[i]) == 0)
 		{
