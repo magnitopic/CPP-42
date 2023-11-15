@@ -2,6 +2,7 @@
 NAME			=	fixed
 
 SRC	=	main.cpp \
+		Fixed.cpp \
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler

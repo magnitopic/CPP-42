@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:08:33 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/13 11:40:12 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:01:15 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ std::string ft_replace(std::string original, std::string s1, std::string s2)
 
 int main(int argc, char **argv)
 {
-	std::ifstream og_file(argv[1]);
 	std::string og_str = "";
 
 	if (argc != 4)
 		return raise_error("Program takes 3 parameters: filename, string1, string2");
+	std::ifstream og_file(argv[1]);
 	if (!og_file.is_open())
 		return raise_error("Unable to open file");
 	while (og_file)
