@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:47:27 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/09 12:44:46 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:38:17 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define HUMAN_A_HPP_
 
 #include "Weapon.hpp"
+#include <iostream>
 
 class HumanA
 {

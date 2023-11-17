@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:43 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/13 12:30:00 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/17 12:30:04 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ private:
 	static const int fract_num;
 
 public:
+	// default constructor
 	Fixed();
-	Fixed(Fixed og_value);
+	// copy constructor
+	Fixed(const Fixed &other_fixed);
+	// copy assignment operator
+	Fixed &operator=(const Fixed &other_fixed);
+	// destructor
 	~Fixed();
 };
 
