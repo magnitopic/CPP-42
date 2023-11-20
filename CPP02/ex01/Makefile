@@ -1,4 +1,4 @@
-# CPP02-ex00
+# CPP02-ex01
 NAME			=	fixed
 
 SRC	=	main.cpp \
@@ -18,19 +18,19 @@ RESET			=	\033[0m
 
 # Rules
 all:		$(NAME)
-			@printf "$(BLUE)==> $(CYAN)CPP02-ex00 compiled ✅\n\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP02-ex01 compiled ✅\n\n$(RESET)"
 
 $(NAME):	$(OBJS)
 			@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 			@$(RM) $(OBJS)
-			@printf "\n$(BLUE)==> $(RED)Removed CPP02-ex00 🗑️\n$(RESET)"
+			@printf "\n$(BLUE)==> $(RED)Removed CPP02-ex01 🗑️\n$(RESET)"
 
 fclean:		clean
 			@$(RM) $(NAME)
 
 re:			fclean all
-			@printf "$(BLUE)==> $(CYAN)CPP02-ex00 recompiled 🔄\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP02-ex01 recompiled 🔄\n$(RESET)"
 
 .PHONY:		all clean fclean re
