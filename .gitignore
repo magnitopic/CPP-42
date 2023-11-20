@@ -1,4 +1,5 @@
 .DS_Store
+.vscode/
 a.out
 test.cpp
 *.o
@@ -8,6 +9,6 @@ zombies
 this_is_brain
 so_uncivilized
 files
-.vscode/
 *.replace
 harl
+fixed
