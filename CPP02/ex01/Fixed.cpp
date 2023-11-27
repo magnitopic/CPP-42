@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:52 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/20 12:58:36 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:03:57 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ Fixed::Fixed()
 {
 	std::cout << "\033[0;32mDefault constructor called\033[0m" << std::endl;
 	this->val = 0;
-}
-
-Fixed::~Fixed()
-{
-	std::cout << "\033[0;31mDestructor called\033[0m" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other_fixed)
@@ -37,6 +32,33 @@ Fixed &Fixed::operator=(const Fixed &other_fixed)
 	return (*this);
 }
 
+Fixed::~Fixed()
+{
+	std::cout << "\033[0;31mDestructor called\033[0m" << std::endl;
+}
+
+Fixed::Fixed(const int num)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->val = num;
+}
+
+Fixed::Fixed(const float num)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->val = roundf(num * (1 << this->bits));
+}
+
+float Fixed::toFloat(void) const
+{
+	return this->val / (double) (1 << this->bits);
+}
+
+int Fixed::toInt(void) const
+{
+	return this->val;
+}
+
 int Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
@@ -47,4 +69,10 @@ void Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->val = raw;
+}
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
+{
+	out << fixed.toFloat();
+	return out;
 }

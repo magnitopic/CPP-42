@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:43 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/20 12:58:48 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:27:42 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,16 @@ public:
 	// destructor
 	~Fixed();
 
+	Fixed(const int num);
+	Fixed(const float num);
+
+	float toFloat(void) const;
+	int toInt(void) const;
+
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 };
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif
