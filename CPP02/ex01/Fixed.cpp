@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:52 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/27 13:03:57 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:15:50 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ Fixed::~Fixed()
 
 Fixed::Fixed(const int num)
 {
-	std::cout << "Int constructor called" << std::endl;
-	this->val = num;
+	std::cout << "\033[0;32mInt constructor called\033[0m" << std::endl;
+	this->val = roundf(num * (1 << this->bits));
 }
 
 Fixed::Fixed(const float num)
 {
-	std::cout << "Float constructor called" << std::endl;
+	std::cout << "\033[0;32mFloat constructor called\033[0m" << std::endl;
 	this->val = roundf(num * (1 << this->bits));
 }
 
@@ -56,18 +56,16 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt(void) const
 {
-	return this->val;
+	return this->val  / (double) (1 << this->bits);
 }
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return this->val;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->val = raw;
 }
 
