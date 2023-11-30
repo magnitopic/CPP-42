@@ -6,11 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:52 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/28 12:15:50 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:30:26 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 Fixed::Fixed()
 {
@@ -51,12 +52,12 @@ Fixed::Fixed(const float num)
 
 float Fixed::toFloat(void) const
 {
-	return this->val / (double) (1 << this->bits);
+	return this->val / (double)(1 << this->bits);
 }
 
 int Fixed::toInt(void) const
 {
-	return this->val  / (double) (1 << this->bits);
+	return this->val / (double)(1 << this->bits);
 }
 
 int Fixed::getRawBits(void) const
@@ -73,4 +74,46 @@ std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 {
 	out << fixed.toFloat();
 	return out;
+}
+
+// Fixed Operator overloads
+
+// Comparison Operators
+
+bool Fixed::operator>(const Fixed &other_fixed)
+{
+	return (this->bits > other_fixed.getRawBits());
+}
+
+bool Fixed::operator<(const Fixed &other_fixed)
+{
+	return (this->bits < other_fixed.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed &other_fixed)
+{
+	return (this->bits >= other_fixed.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed &other_fixed)
+{
+	return (this->bits <= other_fixed.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed &other_fixed)
+{
+	return (this->bits == other_fixed.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed &other_fixed)
+{
+	return (this->bits != other_fixed.getRawBits());
+}
+
+// Arithmetic Operators
+
+int Fixed::operator+(const Fixed &other_fixed)
+{
+	int newFixed = (this->bits + other_fixed.getRawBits());
+	return newFixed;
 }
