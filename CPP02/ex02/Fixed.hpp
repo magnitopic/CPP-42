@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:43 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/30 16:30:27 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:35:38 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,24 @@ public:
 	bool operator<=(const Fixed &other_fixed);
 	bool operator==(const Fixed &other_fixed);
 	bool operator!=(const Fixed &other_fixed);
-	
+
 	// Arithmetic Operators
-	int operator+(const Fixed &other_fixed);
-	Fixed &operator-(const Fixed &other_fixed);
-	Fixed &operator*(const Fixed &other_fixed);
-	Fixed &operator/(const Fixed &other_fixed);
+	float operator+(const Fixed &other_fixed);
+	float operator-(const Fixed &other_fixed);
+	float operator*(const Fixed &other_fixed);
+	float operator/(const Fixed &other_fixed);
 
 	// Increment/ Decrement operators
 	Fixed &operator++();
 	Fixed &operator--();
+	Fixed operator++(int);
+	Fixed operator--(int);
+
+	// Extra comparison functions
+	static Fixed &min(Fixed &fixed1, Fixed &fixed2);
+	static const Fixed &min(Fixed const &fixed1, Fixed const &fixed2);
+	static Fixed &max(Fixed &fixed1, Fixed &fixed2);
+	static const Fixed &max(Fixed const &fixed1, Fixed const &fixed2);
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed);

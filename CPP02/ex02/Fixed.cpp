@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:52 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/30 16:30:26 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:04:58 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,84 @@ bool Fixed::operator!=(const Fixed &other_fixed)
 
 // Arithmetic Operators
 
-int Fixed::operator+(const Fixed &other_fixed)
+float Fixed::operator+(const Fixed &other_fixed)
 {
-	int newFixed = (this->bits + other_fixed.getRawBits());
-	return newFixed;
+	float result = this->toFloat() + other_fixed.toFloat();
+	return result;
+}
+
+float Fixed::operator-(const Fixed &other_fixed)
+{
+	float result = this->toFloat() - other_fixed.toFloat();
+	return result;
+}
+
+float Fixed::operator*(const Fixed &other_fixed)
+{
+	float result = this->toFloat() * other_fixed.toFloat();
+	return result;
+}
+
+float Fixed::operator/(const Fixed &other_fixed)
+{
+	float result = this->toFloat() / other_fixed.toFloat();
+	return result;
+}
+
+// Increment/ Decrement operators
+
+Fixed &Fixed::operator++()
+{
+	this->val += 1;
+	return *this;
+}
+
+Fixed &Fixed::operator--()
+{
+	this->val -= 1;
+	return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed aux = (*this);
+	++(*this);
+	return aux;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed aux = (*this);
+	--(*this);
+	return aux;
+}
+
+// Extra comparison functions
+
+Fixed &Fixed::min(Fixed &fixed1, Fixed &fixed2)
+{
+	if (fixed1.getRawBits() < fixed2.getRawBits())
+		return fixed1;
+	return fixed2;
+}
+
+const Fixed &Fixed::min(Fixed const &fixed1, Fixed const &fixed2)
+{
+	if (fixed1.getRawBits() < fixed2.getRawBits())
+		return fixed1;
+	return fixed2;
+}
+
+Fixed &Fixed::max(Fixed &fixed1, Fixed &fixed2)
+{
+	if (fixed1.getRawBits() > fixed2.getRawBits())
+		return fixed1;
+	return fixed2;
+}
+
+const Fixed &Fixed::max(Fixed const &fixed1, Fixed const &fixed2)
+{
+	if (fixed1.getRawBits() > fixed2.getRawBits())
+		return fixed1;
+	return fixed2;
 }

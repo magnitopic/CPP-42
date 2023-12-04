@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:17:37 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/28 12:50:11 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:05:22 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,14 @@
 int main(void)
 {
 	Fixed a(54.5f);
-	std::cout << a.getRawBits() << std::endl;
+	Fixed b(6);
 	std::cout << a.toFloat() << std::endl;
-	std::cout << a.toInt() << std::endl;
+	std::cout << "Max value: " << Fixed::max(a, b) << std::endl;
+	std::cout << "Min value: " << Fixed::min(a, b) << std::endl;
+	Fixed c(a + b);
+	std::cout << "C: " << c.toInt() << std::endl;
+	std::cout << "C: " << c.toFloat() << std::endl;
+	std::cout << ++a << std::endl;
+	Fixed error()
 	return 0;
 }
