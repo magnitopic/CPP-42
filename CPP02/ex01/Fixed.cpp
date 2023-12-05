@@ -6,36 +6,37 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:52 by alaparic          #+#    #+#             */
-/*   Updated: 2023/11/30 15:32:05 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:46:02 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
+#include <iostream>
 
 Fixed::Fixed()
 {
-	std::cout << "\033[0;32mDefault constructor called\033[0m" << std::endl;
+	std::cout << "\033[2;30mDefault constructor used\033[0m" << std::endl;
 	this->val = 0;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "\033[2;30mDestructor called\033[0m" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other_fixed)
 {
-	std::cout << "\033[0;32mCopy constructor called\033[0m" << std::endl;
+	std::cout << "\033[2;30mCopy constructor called\033[0m" << std::endl;
 	this->val = other_fixed.getRawBits();
 }
 
 Fixed &Fixed::operator=(const Fixed &other_fixed)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "\033[2;30mCopy assignment operator called\033[0m" << std::endl;
 	if (this != &other_fixed)
 		this->val = other_fixed.getRawBits();
 	return (*this);
-}
-
-Fixed::~Fixed()
-{
-	std::cout << "\033[0;31mDestructor called\033[0m" << std::endl;
 }
 
 Fixed::Fixed(const int num)
@@ -52,12 +53,12 @@ Fixed::Fixed(const float num)
 
 float Fixed::toFloat(void) const
 {
-	return this->val / (double) (1 << this->bits);
+	return this->val / (double)(1 << this->bits);
 }
 
 int Fixed::toInt(void) const
 {
-	return this->val  / (double) (1 << this->bits);
+	return this->val / (double)(1 << this->bits);
 }
 
 int Fixed::getRawBits(void) const

@@ -6,14 +6,14 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:17:37 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/04 13:05:22 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/05 19:10:55 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
 
-/* int main(void)
+int main(void)
 {
 	Fixed a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
@@ -25,9 +25,9 @@
 	std::cout << b << std::endl;
 	std::cout << Fixed::max(a, b) << std::endl;
 	return 0;
-} */
+}
 
-int main(void)
+/* int main(void)
 {
 	Fixed a(54.5f);
 	Fixed b(6);
@@ -38,6 +38,5 @@ int main(void)
 	std::cout << "C: " << c.toInt() << std::endl;
 	std::cout << "C: " << c.toFloat() << std::endl;
 	std::cout << ++a << std::endl;
-	Fixed error()
 	return 0;
-}
+} */
