@@ -6,7 +6,15 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:39:05 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/04 16:39:06 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:52:59 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
+#include <iostream>
+
+int main(void)
+{
+	ClapTrap a = ClapTrap();
+	return 0;
+}

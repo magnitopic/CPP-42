@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:39:26 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/04 18:11:21 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:07:33 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ class ClapTrap
 {
 private:
 	std::string name;
-	int health = 10;
-	int energy = 10;
-	int attackDamage = 10;
+	int health;
+	int energy;
+	int attackDamage;
 
 public:
 	// default class methods
-	ClapTrap();
+	ClapTrap(std::str name);
 	ClapTrap(const ClapTrap &other_clapTrap);
 	ClapTrap &operator=(const ClapTrap &other_clapTrap);
 	~ClapTrap();
