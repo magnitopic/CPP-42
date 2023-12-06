@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 16:39:16 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/05 20:39:32 by alaparic         ###   ########.fr       */
+/*   Created: 2023/12/05 19:17:16 by alaparic          #+#    #+#             */
+/*   Updated: 2023/12/05 20:33:35 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,27 @@ ClapTrap::ClapTrap(std::string name)
 	this->attackDamage = 0;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy)
+ClapTrap::ClapTrap(const ClapTrap &other_clapTrap)
 {
 	std::cout << "\033[2;30mCopy constructor called\033[0m" << std::endl;
-	if (this != &copy)
+	if (this != &other_clapTrap)
 	{
-		this->name = copy.name;
-		this->hp = copy.hp;
-		this->energy = copy.energy;
-		this->attackDamage = copy.attackDamage;
+		this->name = other_clapTrap.name;
+		this->hp = other_clapTrap.hp;
+		this->energy = other_clapTrap.energy;
+		this->attackDamage = other_clapTrap.attackDamage;
 	}
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &assign)
+ClapTrap &ClapTrap::operator=(const ClapTrap &other_clapTrap)
 {
 	std::cout << "\033[2;30mCopy assignment operator called\033[0m" << std::endl;
-	if (this != &assign)
+	if (this != &other_clapTrap)
 	{
-		this->name = assign.name;
-		this->hp = assign.hp;
-		this->energy = assign.energy;
-		this->attackDamage = assign.attackDamage;
+		this->name = other_clapTrap.name;
+		this->hp = other_clapTrap.hp;
+		this->energy = other_clapTrap.energy;
+		this->attackDamage = other_clapTrap.attackDamage;
 	}
 	return *this;
 }

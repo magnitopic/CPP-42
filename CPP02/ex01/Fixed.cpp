@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:52 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/05 16:46:02 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/05 19:15:21 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ Fixed &Fixed::operator=(const Fixed &other_fixed)
 
 Fixed::Fixed(const int num)
 {
-	std::cout << "\033[0;32mInt constructor called\033[0m" << std::endl;
+	std::cout << "\033[2;30mInt constructor called\033[0m" << std::endl;
 	this->val = roundf(num * (1 << this->bits));
 }
 
 Fixed::Fixed(const float num)
 {
-	std::cout << "\033[0;32mFloat constructor called\033[0m" << std::endl;
+	std::cout << "\033[2;30mFloat constructor called\033[0m" << std::endl;
 	this->val = roundf(num * (1 << this->bits));
 }
 

@@ -6,11 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:17:37 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/05 19:10:55 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/05 19:14:19 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
 
 int main(void)
