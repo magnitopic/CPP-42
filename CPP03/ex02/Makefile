@@ -1,9 +1,10 @@
-# CPP03-ex01
-NAME			=	ScavTrap
+# CPP03-ex02
+NAME			=	FragTrap
 
 SRC	=	main.cpp \
 		ClapTrap.cpp \
-		ScavTrap.cpp
+		ScavTrap.cpp \
+		FragTrap.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
@@ -19,19 +20,19 @@ RESET			=	\033[0m
 
 # Rules
 all:		$(NAME)
-			@printf "$(BLUE)==> $(CYAN)CPP03-ex01 compiled ✅\n\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP03-ex02 compiled ✅\n\n$(RESET)"
 
 $(NAME):	$(OBJS)
 			@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 			@$(RM) $(OBJS)
-			@printf "\n$(BLUE)==> $(RED)Removed CPP03-ex01 🗑️\n$(RESET)"
+			@printf "\n$(BLUE)==> $(RED)Removed CPP03-ex02 🗑️\n$(RESET)"
 
 fclean:		clean
 			@$(RM) $(NAME)
 
 re:			fclean all
-			@printf "$(BLUE)==> $(CYAN)CPP03-ex01 recompiled 🔄\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP03-ex02 recompiled 🔄\n$(RESET)"
 
 .PHONY:		all clean fclean re

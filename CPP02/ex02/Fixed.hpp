@@ -6,12 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:43 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/04 12:35:38 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/06 09:28:06 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H_
-#define FIXED_H_
+#ifndef FIXED_HPP_
+#define FIXED_HPP_
 
 #include <iostream>
 

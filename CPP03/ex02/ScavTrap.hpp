@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:24:43 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/06 09:27:56 by alaparic         ###   ########.fr       */
+/*   Created: 2023/12/05 19:19:19 by alaparic          #+#    #+#             */
+/*   Updated: 2023/12/06 09:30:05 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP_
-#define FIXED_HPP_
+#ifndef SCAVTRAP_HPP_
+#define SCAVTRAP_HPP_
 
+#include "ClapTrap.hpp"
 #include <iostream>
 
-class Fixed
+class ScavTrap : public ClapTrap
 {
-private:
-	int val;
-	static const int bits = 8;
-
 public:
-	// default constructor
-	Fixed();
-	// copy constructor
-	Fixed(const Fixed &other_fixed);
-	// copy assignment operator
-	Fixed &operator=(const Fixed &other_fixed);
-	// destructor
-	~Fixed();
+	// default class methods
+	ScavTrap();
+	ScavTrap(std::string name);
+	ScavTrap(const ScavTrap &copy);
+	ScavTrap &operator=(const ScavTrap &assign);
+	~ScavTrap();
 
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
+	void attack(const std::string &target);
+
+	void guradGate();
 };
 
 #endif

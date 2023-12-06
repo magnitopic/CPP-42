@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:24:43 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/06 09:27:56 by alaparic         ###   ########.fr       */
+/*   Created: 2023/12/05 19:13:26 by alaparic          #+#    #+#             */
+/*   Updated: 2023/12/06 10:10:25 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP_
-#define FIXED_HPP_
-
 #include <iostream>
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class Fixed
+int main(void)
 {
-private:
-	int val;
-	static const int bits = 8;
+	FragTrap a = FragTrap("ATLAS");
+	ScavTrap p = ScavTrap("P-body");
 
-public:
-	// default constructor
-	Fixed();
-	// copy constructor
-	Fixed(const Fixed &other_fixed);
-	// copy assignment operator
-	Fixed &operator=(const Fixed &other_fixed);
-	// destructor
-	~Fixed();
-
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
-};
-
-#endif
+	p.guradGate();
+	a.attack("P-body");
+	p.takeDamage(30);
+	a.attack("P-body");
+	p.takeDamage(30);
+	p.beRepaired(5);
+	a.attack("P-body");
+	p.takeDamage(30);
+	a.attack("P-body");
+	p.takeDamage(30);
+	a.highFivesGuys();
+	return 0;
+}

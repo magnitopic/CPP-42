@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:24:43 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/06 09:27:56 by alaparic         ###   ########.fr       */
+/*   Created: 2023/12/06 09:27:07 by alaparic          #+#    #+#             */
+/*   Updated: 2023/12/06 09:55:42 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP_
-#define FIXED_HPP_
+#ifndef FRAGTRAP_HPP_
+#define FRAGTRAP_HPP_
 
 #include <iostream>
+#include "ClapTrap.hpp"
 
-class Fixed
+class FragTrap : public ClapTrap
 {
-private:
-	int val;
-	static const int bits = 8;
-
 public:
-	// default constructor
-	Fixed();
-	// copy constructor
-	Fixed(const Fixed &other_fixed);
-	// copy assignment operator
-	Fixed &operator=(const Fixed &other_fixed);
-	// destructor
-	~Fixed();
+	// default class methods
+	FragTrap();
+	FragTrap(const FragTrap &copy);
+	FragTrap &operator=(const FragTrap &assign);
+	~FragTrap();
 
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
+	FragTrap(std::string name);
+	void highFivesGuys(void);
 };
 
 #endif

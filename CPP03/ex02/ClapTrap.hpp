@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:24:43 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/06 09:27:56 by alaparic         ###   ########.fr       */
+/*   Created: 2023/12/05 19:17:12 by alaparic          #+#    #+#             */
+/*   Updated: 2023/12/05 20:38:05 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP_
-#define FIXED_HPP_
+#ifndef CLAPTRAP_HPP_
+#define CLAPTRAP_HPP_
 
 #include <iostream>
 
-class Fixed
+class ClapTrap
 {
-private:
-	int val;
-	static const int bits = 8;
+protected:
+	std::string name;
+	int hp;
+	int energy;
+	int attackDamage;
 
 public:
-	// default constructor
-	Fixed();
-	// copy constructor
-	Fixed(const Fixed &other_fixed);
-	// copy assignment operator
-	Fixed &operator=(const Fixed &other_fixed);
-	// destructor
-	~Fixed();
+	// default class methods
+	ClapTrap();
+	ClapTrap(const ClapTrap &copy);
+	ClapTrap &operator=(const ClapTrap &assign);
+	~ClapTrap();
 
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
+	ClapTrap(std::string name);
+	void attack(const std::string &target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 };
 
 #endif

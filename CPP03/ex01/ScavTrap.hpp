@@ -6,12 +6,12 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:19:19 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/05 20:38:45 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/06 09:28:34 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H_
-#define SCAVTRAP_H_
+#ifndef SCAVTRAP_HPP_
+#define SCAVTRAP_HPP_
 
 #include "ClapTrap.hpp"
 #include <iostream>
