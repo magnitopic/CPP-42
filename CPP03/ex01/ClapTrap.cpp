@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:17:16 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/05 20:33:35 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/06 09:12:11 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,27 @@ ClapTrap::ClapTrap(std::string name)
 	this->attackDamage = 0;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &other_clapTrap)
+ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	std::cout << "\033[2;30mCopy constructor called\033[0m" << std::endl;
-	if (this != &other_clapTrap)
+	if (this != &copy)
 	{
-		this->name = other_clapTrap.name;
-		this->hp = other_clapTrap.hp;
-		this->energy = other_clapTrap.energy;
-		this->attackDamage = other_clapTrap.attackDamage;
+		this->name = copy.name;
+		this->hp = copy.hp;
+		this->energy = copy.energy;
+		this->attackDamage = copy.attackDamage;
 	}
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &other_clapTrap)
+ClapTrap &ClapTrap::operator=(const ClapTrap &assign)
 {
 	std::cout << "\033[2;30mCopy assignment operator called\033[0m" << std::endl;
-	if (this != &other_clapTrap)
+	if (this != &assign)
 	{
-		this->name = other_clapTrap.name;
-		this->hp = other_clapTrap.hp;
-		this->energy = other_clapTrap.energy;
-		this->attackDamage = other_clapTrap.attackDamage;
+		this->name = assign.name;
+		this->hp = assign.hp;
+		this->energy = assign.energy;
+		this->attackDamage = assign.attackDamage;
 	}
 	return *this;
 }
@@ -80,7 +80,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->energy > 0 && this->hp > 0)
 	{
-		std::cout << "\033[0;32mClapTrap " << this->name << "repairs itself receiving " << amount << " HP back.\033[0m" << std::endl;
+		std::cout << "\033[0;32mClapTrap " << this->name << " repairs itself receiving " << amount << " HP back.\033[0m" << std::endl;
 		this->energy--;
 		this->hp += amount;
 	}
