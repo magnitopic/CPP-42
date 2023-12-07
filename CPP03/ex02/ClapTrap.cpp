@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:17:16 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/06 09:12:11 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:27:28 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &assign)
 	return *this;
 }
 
-ClapTrap::ClapTrap::~ClapTrap()
+ClapTrap::~ClapTrap()
 {
 	std::cout << "\033[2;30mDestructor called\033[0m" << std::endl;
 }
