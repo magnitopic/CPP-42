@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 17:51:50 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/12 12:44:01 by alaparic         ###   ########.fr       */
+/*   Created: 2023/12/12 12:44:32 by alaparic          #+#    #+#             */
+/*   Updated: 2023/12/12 12:50:07 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP_
-#define AMATERIA_HPP_
+#ifndef CHARACTER_HPP_
+#define CHARACTER_HPP_
 
 #include <iostream>
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-class AMateria
+class Character : public ICharacter
 {
-protected:
-	std::string type;
+private:
+	std::string name;
+	AMateria *inventory[4];
 
 public:
-	AMateria();
-	AMateria(const AMateria &copy);
-	AMateria &operator=(const AMateria &assign);
-	~AMateria();
+	Character();
+	Character(const Character &copy);
+	Character &operator=(const Character &assign);
+	~Character();
 
-	AMateria(std::string const &type);
-	std::string const &getType() const;
-
-	virtual AMateria *clone() const = 0;
-	virtual void use(ICharacter &target);
 };
 
 #endif
