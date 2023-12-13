@@ -1,7 +1,12 @@
 # CPP04-ex03
 NAME			=	materia
 
-SRC	=	main.cpp 
+SRC	=	main.cpp \
+		AMateria.cpp \
+		ICharacter.cpp \
+		Character.cpp \
+		IMateriaSource.cpp \
+		MateriaSource.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler

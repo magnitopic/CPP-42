@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 12:44:32 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/12 15:06:53 by alaparic         ###   ########.fr       */
+/*   Created: 2023/12/12 15:08:53 by alaparic          #+#    #+#             */
+/*   Updated: 2023/12/12 15:10:16 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP_
-#define CHARACTER_HPP_
-
 #include <iostream>
-#include "ICharacter.hpp"
-#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class Character : public ICharacter
+IMateriaSource::IMateriaSource()
 {
-private:
-	std::string name;
-	AMateria *inventory[4];
+}
 
-public:
-	Character();
-	Character(const Character &copy);
-	Character &operator=(const Character &assign);
-	~Character();
+IMateriaSource::IMateriaSource(const IMateriaSource &copy)
+{
+	if (this != &copy)
+	
+}
 
-	Character(std::string name);
-};
+IMateriaSource &IMateriaSource::operator=(const IMateriaSource &assign)
+{
+	if (this != &assign)
+		
+}
 
-#endif
+IMateriaSource::~IMateriaSource()
+{
+}
+
+
