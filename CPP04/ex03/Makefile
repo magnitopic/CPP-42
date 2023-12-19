@@ -3,16 +3,16 @@ NAME			=	materia
 
 SRC	=	main.cpp \
 		AMateria.cpp \
-		ICharacter.cpp \
 		Character.cpp \
-		IMateriaSource.cpp \
-		MateriaSource.cpp
+		MateriaSource.cpp \
+		Cure.cpp \
+		Ice.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
 CXX				=	c++
 RM				=	rm -f
-CXXFLAGS		=	-Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address
+CXXFLAGS		=	-Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
 
 # Colours
 RED				=	\033[0;31m

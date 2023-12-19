@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:50:37 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/13 15:36:58 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/19 19:45:03 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ Character::Character()
 	this->name = "*Unnamed character*";
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
+	for (int i = 0; i < 1024; i++)
+		this->ground[i] = NULL;
 }
 
 Character::Character(const Character &copy)
@@ -27,6 +29,8 @@ Character::Character(const Character &copy)
 		this->name = copy.name;
 		for (int i = 0; i < 4; i++)
 			this->inventory[i] = copy.inventory[i];
+		for (int i = 0; i < 1024; i++)
+			this->ground[i] = copy.ground[i];
 	}
 }
 
@@ -37,12 +41,24 @@ Character &Character::operator=(const Character &assign)
 		this->name = assign.name;
 		for (int i = 0; i < 4; i++)
 			this->inventory[i] = assign.inventory[i];
+		for (int i = 0; i < 1024; i++)
+			this->ground[i] = assign.ground[i];
 	}
 	return *this;
 }
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->inventory[i] != NULL)
+			delete this->inventory[i];
+	}
+	for (int i = 0; i < 1024; i++)
+	{
+		if (this->ground[i] != NULL)
+			delete this->ground[i];
+	}
 }
 
 Character::Character(std::string name)
@@ -50,6 +66,8 @@ Character::Character(std::string name)
 	this->name = name;
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
+	for (int i = 0; i < 1024; i++)
+		this->ground[i] = NULL;
 }
 
 std::string const &Character::getName() const
@@ -59,31 +77,20 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	int flag = 1;
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->inventory[i] != NULL)
 		{
 			this->inventory[i] = m;
-			flag--;
 			break;
-		}
-	}
-	if (flag)
-	{
-		for (int i = 0; i < 1024; i++)
-		{
-			if (this->ground[i] == NULL)
-			{
-				this->ground[i] = m;
-				break;
-			}
 		}
 	}
 }
 
 void Character::unequip(int idx)
 {
+	if (this->inventory[idx] == NULL)
+		return;
 	for (int i = 0; i < 1024; i++)
 	{
 		if (this->ground[i] == NULL)
@@ -97,5 +104,6 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	this->inventory[idx]->use(target);
+	if (this->inventory[idx] != NULL)
+		this->inventory[idx]->use(target);
 }

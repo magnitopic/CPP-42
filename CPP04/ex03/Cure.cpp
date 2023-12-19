@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:22:19 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/12 12:39:26 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/19 19:58:04 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@ Cure::Cure()
 }
 
 Cure::Cure(const Cure &copy)
+	: AMateria(copy)
 {
+	(void)copy;
 	this->type = "cure";
 }
 
 Cure &Cure::operator=(const Cure &assign)
 {
+	(void)assign;
 	this->type = "cure";
 	return *this;
 }

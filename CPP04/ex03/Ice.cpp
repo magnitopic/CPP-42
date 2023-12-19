@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:25:00 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/12 12:39:52 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/19 19:45:59 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@ Ice::Ice()
 }
 
 Ice::Ice(const Ice &copy)
+	: AMateria(copy)
 {
+	(void)copy;
 	this->type = "ice";
 }
 
 Ice &Ice::operator=(const Ice &assign)
 {
+	(void)assign;
 	this->type = "ice";
 	return *this;
 }
