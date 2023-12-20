@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:58:16 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/20 13:07:34 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:16:58 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->learnedMaterias[i] != NULL)
+		if (this->learnedMaterias[i])
 			delete this->learnedMaterias[i];
 	}
 }
@@ -53,7 +53,7 @@ void MateriaSource::learnMateria(AMateria *lesson)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->learnedMaterias[i] == NULL && lesson != NULL)
+		if (this->learnedMaterias[i] == NULL && lesson)
 		{
 			this->learnedMaterias[i] = lesson->clone();
 			break;
@@ -67,14 +67,14 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->learnedMaterias[i] != NULL &&
+		if (this->learnedMaterias[i] &&
 			this->learnedMaterias[i]->getType() == type)
 		{
 			knowledge = this->learnedMaterias[i]->clone();
 			break;
 		}
 	}
-	if (knowledge != NULL)
+	if (knowledge)
 		return knowledge;
 	return 0;
 }

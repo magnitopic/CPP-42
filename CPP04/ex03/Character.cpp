@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:50:37 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/20 13:58:56 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:13:36 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ Character &Character::operator=(const Character &assign)
 		this->name = assign.name;
 		for (int i = 0; i < 4; i++)
 		{
-			if (assign.inventory[i] != NULL && assign.inventory[i])
+			if (assign.inventory[i])
 				this->inventory[i] = assign.inventory[i]->clone();
 			else
 				this->inventory[i] = NULL;
 		}
 		for (int i = 0; i < 1024; i++)
 		{
-			if (assign.ground[i] != NULL && assign.ground[i])
+			if (assign.ground[i])
 				this->ground[i] = assign.ground[i]->clone();
 			else
 				this->ground[i] = NULL;
@@ -76,7 +76,7 @@ void Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->inventory[i] == NULL && m != NULL)
+		if (this->inventory[i] == NULL && m)
 		{
 			this->inventory[i] = m->clone();
 			break;
@@ -101,7 +101,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (this->inventory[idx] != NULL)
+	if (this->inventory[idx])
 		this->inventory[idx]->use(target);
 	else
 		std::cout << "Inventory slot empty..." << std::endl;
