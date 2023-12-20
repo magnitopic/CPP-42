@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:08:54 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/19 20:01:11 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:51:00 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ AMateria &AMateria::operator=(const AMateria &assign)
 	if (this != &assign)
 		this->type = assign.type;
 	return *this;
+}
+
+AMateria::~AMateria()
+{
 }
 
 AMateria::AMateria(const std::string &type)

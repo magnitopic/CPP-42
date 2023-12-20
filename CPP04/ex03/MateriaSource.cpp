@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:58:16 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/19 19:41:07 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:07:34 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void MateriaSource::learnMateria(AMateria *lesson)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->learnedMaterias[i] == NULL)
+		if (this->learnedMaterias[i] == NULL && lesson != NULL)
 		{
-			this->learnedMaterias[i] = lesson;
+			this->learnedMaterias[i] = lesson->clone();
 			break;
 		}
 	}

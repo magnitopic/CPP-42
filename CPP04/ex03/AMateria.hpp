@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:51:50 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/19 19:07:43 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:50:51 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	AMateria();
 	AMateria(const AMateria &copy);
 	AMateria &operator=(const AMateria &assign);
-	virtual ~AMateria(){};
+	virtual ~AMateria();
 
 	AMateria(std::string const &type);
 	std::string const &getType() const;

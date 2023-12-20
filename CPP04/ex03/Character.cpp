@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:50:37 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/19 19:45:03 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:58:56 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,7 @@ Character::Character()
 
 Character::Character(const Character &copy)
 {
-	if (this != &copy)
-	{
-		this->name = copy.name;
-		for (int i = 0; i < 4; i++)
-			this->inventory[i] = copy.inventory[i];
-		for (int i = 0; i < 1024; i++)
-			this->ground[i] = copy.ground[i];
-	}
+	*this = copy;
 }
 
 Character &Character::operator=(const Character &assign)
@@ -40,25 +33,29 @@ Character &Character::operator=(const Character &assign)
 	{
 		this->name = assign.name;
 		for (int i = 0; i < 4; i++)
-			this->inventory[i] = assign.inventory[i];
+		{
+			if (assign.inventory[i] != NULL && assign.inventory[i])
+				this->inventory[i] = assign.inventory[i]->clone();
+			else
+				this->inventory[i] = NULL;
+		}
 		for (int i = 0; i < 1024; i++)
-			this->ground[i] = assign.ground[i];
+		{
+			if (assign.ground[i] != NULL && assign.ground[i])
+				this->ground[i] = assign.ground[i]->clone();
+			else
+				this->ground[i] = NULL;
+		}
 	}
 	return *this;
 }
 
 Character::~Character()
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->inventory[i] != NULL)
-			delete this->inventory[i];
-	}
-	for (int i = 0; i < 1024; i++)
-	{
-		if (this->ground[i] != NULL)
-			delete this->ground[i];
-	}
+	for (int i = 0; i < 4 && this->inventory[i]; i++)
+		delete this->inventory[i];
+	for (int i = 0; i < 1024 && this->ground[i]; i++)
+		delete this->ground[i];
 }
 
 Character::Character(std::string name)
@@ -79,9 +76,9 @@ void Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->inventory[i] != NULL)
+		if (this->inventory[i] == NULL && m != NULL)
 		{
-			this->inventory[i] = m;
+			this->inventory[i] = m->clone();
 			break;
 		}
 	}
@@ -106,4 +103,6 @@ void Character::use(int idx, ICharacter &target)
 {
 	if (this->inventory[idx] != NULL)
 		this->inventory[idx]->use(target);
+	else
+		std::cout << "Inventory slot empty..." << std::endl;
 }

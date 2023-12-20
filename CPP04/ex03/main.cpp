@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:43:57 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/19 19:49:39 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:00:52 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,43 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 
-int main(void)
+void leaks(void)
+{
+	system("leaks materia");
+}
+
+int main()
+{
+	// atexit(leaks);
+	IMateriaSource *src = new MateriaSource();
+	AMateria *temp = new Cure();
+	src->learnMateria(temp);
+	src->learnMateria(temp);
+	delete temp;
+	Character *me = new Character("me");
+	AMateria *tmp;
+	Character *bob = new Character("bob");
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	me->use(0, *bob);
+	delete tmp;
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	me->use(1, *bob);
+	Character *you = new Character(*me);
+	me->unequip(1);
+	you->use(0, *bob);
+	you->use(1, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete you;
+	delete src;
+	delete tmp;
+	return 0;
+}
+
+/* int main(void)
 {
 	IMateriaSource *src = new MateriaSource();
 	src->learnMateria(new Ice());
@@ -36,4 +72,4 @@ int main(void)
 	delete me;
 	delete src;
 	return 0;
-}
+} */
