@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:43:57 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/20 14:00:52 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:02:58 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 
-void leaks(void)
+/* void leaks(void)
 {
 	system("leaks materia");
-}
+} */
 
 int main()
 {
 	// atexit(leaks);
 	IMateriaSource *src = new MateriaSource();
-	AMateria *temp = new Cure();
+	AMateria *temp = new Ice();
 	src->learnMateria(temp);
+	delete temp;
+	temp = new Cure();
 	src->learnMateria(temp);
 	delete temp;
 	Character *me = new Character("me");
