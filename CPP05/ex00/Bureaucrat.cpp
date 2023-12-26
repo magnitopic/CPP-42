@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:23:22 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/23 17:00:45 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/26 12:38:45 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 	this->grade = grade;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return this->name;
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
 	return this->grade;
 }
@@ -79,8 +79,8 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 	return "\033[0;31mError: Grade value too low\033[0m";
 }
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat &bureaucrat)
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
-	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << "." << std::endl;
+	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
 	return out;
 }

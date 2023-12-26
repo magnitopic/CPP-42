@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:24:52 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/05 19:15:21 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/26 11:47:26 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ void Fixed::setRawBits(int const raw)
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 {
-	out << fixed.toFloat();
+	out << fixed.toFloat() << std::endl;
 	return out;
 }

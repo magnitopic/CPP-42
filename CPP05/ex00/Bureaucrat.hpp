@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 13:24:40 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/23 17:00:42 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/26 12:39:20 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ public:
 
 	Bureaucrat(std::string name, int grade);
 
-	std::string getName();
-	int getGrade();
+	std::string getName() const;
+	int getGrade() const;
 
 	void incrementGrade();
 	void decrementGrade();
@@ -47,6 +47,6 @@ public:
 	};
 };
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat &bureaucrat);
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
 
 #endif
