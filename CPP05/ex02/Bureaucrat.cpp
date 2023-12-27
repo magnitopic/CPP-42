@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:23:22 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/27 12:55:00 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/27 19:24:42 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,13 @@ void Bureaucrat::executeForm(AForm const &form)
 {
 	try
 	{
+		std::cout << "\033[0;32m" << name << " executed " << form.getName() << "\033[0m" << std::endl;
 		form.execute(*this);
-		std::cout << "\033[0;32m" << name << " executed " << form.getName()<< "\033[0m" << std::endl;
 	}
 	catch (const std::exception &e)
 	{
 		std::cout << "\033[0;31m" << name << " couldn't execute " << form.getName()
 				  << " because " << e.what() << "\033[0m" << std::endl;
-		// std::cerr << e.what() << std::endl;
 	}
 }
 
@@ -111,6 +110,6 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
-	out << "\033[0;34m"<< bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".\033[0m";
+	out << "\033[0;34m" << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".\033[0m";
 	return out;
 }
