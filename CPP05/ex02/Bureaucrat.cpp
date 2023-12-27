@@ -6,12 +6,13 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:23:22 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/26 15:31:21 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:55:00 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() {}
 
@@ -69,13 +70,33 @@ void Bureaucrat::decrementGrade()
 	this->grade++;
 }
 
-void Bureaucrat::beSigned(std::string formName, std::string reason)
+void Bureaucrat::beSigned(AForm &form)
 {
-	if (reason == "")
-		std::cout << "\033[0;33m" << this->name << " signed " << formName << "\033[0m" << std::endl;
-	else
-		std::cout << "\033[0;31m" << this->name << " couldn't sign " << formName
-				  << " because " << reason << "\033[0m" << std::endl;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "\033[0;33m" << this->name << " signed " << form.getName() << "\033[0m" << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "\033[0;31m" << this->name << " couldn't sign " << form.getName()
+				  << " because " << e.what() << "\033[0m" << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << "\033[0;32m" << name << " executed " << form.getName()<< "\033[0m" << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "\033[0;31m" << name << " couldn't execute " << form.getName()
+				  << " because " << e.what() << "\033[0m" << std::endl;
+		// std::cerr << e.what() << std::endl;
+	}
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
@@ -90,6 +111,6 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
-	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
+	out << "\033[0;34m"<< bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".\033[0m";
 	return out;
 }

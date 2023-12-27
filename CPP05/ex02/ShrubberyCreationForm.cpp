@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:56:05 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/26 20:17:57 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/26 23:02:30 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(Bureaucrat const &bur) const
 {
-	std::cout << "Test: " << this->getGradeExec() << "  " << bur.getGrade() << std::endl;
 	if (!this->getIsSigned())
 		throw FormNotSignedException();
 	if (this->getGradeExec() < bur.getGrade())

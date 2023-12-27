@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:50:30 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/26 18:55:19 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:25:19 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,8 @@ AForm::~AForm() {}
 void AForm::beSigned(Bureaucrat &bur)
 {
 	if (bur.getGrade() > this->gradeSig)
-	{
-		bur.beSigned(this->name, "bureaucrat grade to low.");
 		throw GradeTooLowException();
-	}
 	this->isSigned = true;
-	bur.beSigned(this->name, "");
 }
 
 std::string AForm::getName() const
@@ -75,17 +71,17 @@ int AForm::getGradeExec() const
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
-	return "\033[0;31mForm Error: Grade value too high\033[0m";
+	return "\033[0;31mGrade value too high\033[0m";
 }
 
 const char *AForm::GradeTooLowException::what() const throw()
 {
-	return "\033[0;31mForm Error: Grade value too low\033[0m";
+	return "\033[0;31mGrade value too low\033[0m";
 }
 
 const char *AForm::FormNotSignedException::what() const throw()
 {
-	return "\033[0;31mForm Error: Form has not been signed and thus cannot be executed\033[0m";
+	return "\033[0;31mit has not been signed \033[0m";
 }
 
 std::ostream &operator<<(std::ostream &out, const AForm &aform)
