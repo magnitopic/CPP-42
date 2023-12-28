@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 15:57:06 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/27 17:29:30 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/28 11:56:10 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &bur) const
 		std::cout << this->target << " has been robotomized successfully\033[0m" << std::endl;
 	}
 	else
-		std::cout << "\033[0;31mRobotomy for " << target << " failed\033[0m" << std::endl;
+		std::cerr << "\033[0;31mRobotomy for " << target << " failed\033[0m" << std::endl;
 }
 
 std::string RobotomyRequestForm::getTarget() const
