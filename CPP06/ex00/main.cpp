@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 12:23:54 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/28 19:28:48 by alaparic         ###   ########.fr       */
+/*   Created: 2023/12/28 18:53:10 by alaparic          #+#    #+#             */
+/*   Updated: 2023/12/28 19:25:40 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ScalarConverter.hpp"
 
-ScalarConverter::~ScalarConverter() {}
-
-void ScalarConverter::convert(std::string literal)
+int main(int argc, char const *argv[])
 {
-	// cast the passed literal to the 4 scalar types
-	toChar
-}
-
-void toChar(std::string)
-{
-	
+	if (argc != 2)
+		std::cerr << "\033[0;31mInvalid number of arguments\033[0m" << std::endl;
+	else
+		ScalarConverter::convert(argv[1]);
+	return 0;
 }
