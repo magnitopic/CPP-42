@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:23:22 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/26 15:31:21 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/28 16:19:42 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void Bureaucrat::beSigned(std::string formName, std::string reason)
 	if (reason == "")
 		std::cout << "\033[0;33m" << this->name << " signed " << formName << "\033[0m" << std::endl;
 	else
-		std::cout << "\033[0;31m" << this->name << " couldn't sign " << formName
+		std::cerr << "\033[0;31m" << this->name << " couldn't sign " << formName
 				  << " because " << reason << "\033[0m" << std::endl;
 }
 

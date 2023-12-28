@@ -21,3 +21,6 @@ materia
 cmake-build-debug/
 bureaucrat
 *_shrubbery
+scalarConverter
+realType
+reinterpret

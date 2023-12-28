@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:23:22 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/27 19:24:42 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/28 16:10:27 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void Bureaucrat::executeForm(AForm const &form)
 {
 	try
 	{
-		std::cout << "\033[0;32m" << name << " executed " << form.getName() << "\033[0m" << std::endl;
 		form.execute(*this);
+		std::cout << "\033[0;32m" << name << " executed " << form.getName() << "\033[0m" << std::endl;
 	}
 	catch (const std::exception &e)
 	{
