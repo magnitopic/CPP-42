@@ -3,7 +3,6 @@ NAME			=	scalarConverter
 
 SRC	=	main.cpp \
 		ScalarConverter.cpp
-		Intern.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler

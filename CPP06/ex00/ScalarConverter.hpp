@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:19:17 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/28 12:26:53 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/29 12:24:39 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SCALARCONVERTER_HPP_
 
 #include <iostream>
+#include <limits>
 
 class ScalarConverter
 {
@@ -27,5 +28,7 @@ public:
 
 	static void convert(std::string literal);
 };
+
+void toChar(std::string literal);
 
 #endif
