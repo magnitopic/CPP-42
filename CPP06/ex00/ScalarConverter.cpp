@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:23:54 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/29 18:25:22 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/29 20:10:35 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -17,5 +17,5 @@ ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(std::string literal)
 {
-	getType(literal);
+	//std::cout << getType(literal) << std::endl;
 }

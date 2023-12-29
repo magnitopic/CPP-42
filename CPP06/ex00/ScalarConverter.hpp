@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:19:17 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/29 19:11:47 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/29 20:08:55 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <limits>
+#include <regex>
 
 enum e_type
 {
@@ -22,7 +23,8 @@ enum e_type
 	INT,
 	FLOAT,
 	DOUBLE,
-	NAN
+	PSEUDO,
+	INVALID
 };
 
 class ScalarConverter
@@ -40,5 +42,6 @@ public:
 
 // program function declarations
 e_type getType(const std::string &s);
+
 
 #endif
