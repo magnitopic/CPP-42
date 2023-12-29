@@ -2,7 +2,8 @@
 NAME			=	scalarConverter
 
 SRC	=	main.cpp \
-		ScalarConverter.cpp
+		ScalarConverter.cpp \
+		getType.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
@@ -21,7 +22,7 @@ all:		$(NAME)
 			@printf "$(BLUE)==> $(CYAN)CPP06-ex00 compiled ✅\n\n$(RESET)"
 
 $(NAME):	$(OBJS)
-			@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+			@$(CXX) $(OBJS) -o $(NAME)
 
 clean:
 			@$(RM) $(OBJS)
