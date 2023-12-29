@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:19:17 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/29 20:08:55 by alaparic         ###   ########.fr       */
+/*   Updated: 2023/12/29 20:39:25 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -42,6 +42,12 @@ public:
 
 // program function declarations
 e_type getType(const std::string &s);
+void handleChar(std::string s);
+void handleInt(std::string s);
+void handleFloat(std::string s);
+void handleDouble(std::string s);
+void handlePseudo(std::string s);
+void handleInvalid(std::string s);
 
 
 #endif
