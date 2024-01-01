@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:23:54 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/01 12:43:54 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/01 12:58:07 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void handleChar(std::string s)
 
 	std::cout << "char: '" << s << "'" << std::endl;
 	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
+	std::cout << "float: " << floatToString(f) << std::endl;
+	std::cout << "double: " << doubleToString(d) << std::endl;
 }
 
 void handleInt(std::string s)
@@ -85,8 +85,8 @@ void handleInt(std::string s)
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
+	std::cout << "float: " << floatToString(f) << std::endl;
+	std::cout << "double: " << doubleToString(d) << std::endl;
 }
 
 void handleFloat(std::string s)
@@ -101,8 +101,8 @@ void handleFloat(std::string s)
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
+	std::cout << "float: " << floatToString(f) << std::endl;
+	std::cout << "double: " << doubleToString(d) << std::endl;
 }
 
 void handleDouble(std::string s)
@@ -136,5 +136,5 @@ void handlePseudo(std::string s)
 
 void handleInvalid(std::string)
 {
-	std::cerr << "\033[0;31mInvalid input\033[0m" << std::endl;
+	std::cerr << "\033[0;31mError: Invalid input\033[0m" << std::endl;
 }

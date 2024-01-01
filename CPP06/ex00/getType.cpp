@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 18:01:04 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/30 12:43:34 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/01 13:10:50 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,41 @@ static e_type checkNumType(const std::string &s)
 
 static bool is_numeric(const std::string &s)
 {
-	// TODO: change this to not use regex, not availavle in cpp98
-	std::regex r("^[+-]?(?:\\d+\\.\\d+|\\d+)f?$");
-	std::smatch maches;
-	return std::regex_search(s, maches, r);
+	int i = 0;
+	int len = s.length();
+
+	// opcional check sign
+	if (i < len && (s.at(i) == '+' || s.at(i) == '-'))
+		i++;
+
+	// integer part
+	if (i < len && std::isdigit(s.at(i)))
+	{
+		while (i < len && std::isdigit(s.at(i)))
+			i++;
+	}
+	else
+		return false;
+
+	// optional decimal part
+	if (i < len && s.at(i) == '.')
+	{
+		i++;
+		if (i < len && std::isdigit(s.at(i)))
+		{
+			while (i < len && std::isdigit(s.at(i)))
+				i++;
+		}
+		else
+			return false;
+	}
+
+	// optional float f
+	if (i < len && s[i] == 'f')
+		i++;
+
+	// check if end reached
+	return i == len;
 }
 
 e_type getType(const std::string &s)
@@ -37,10 +68,9 @@ e_type getType(const std::string &s)
 		"-inf",
 		"+inf",
 		"nan"};
-	//(is_numeric(s)) ? std::cout << "Is a number" << std::endl : std::cout << "Is not a number" << std::endl;
 	if (is_numeric(s))
 		return checkNumType(s);
-	if (s.size() == 1 && std::isalpha(s.at(0)))
+	if (s.size() == 1 && std::isprint(s.at(0)))
 		return CHAR;
 	for (int i = 0; i < 5; i++)
 		if (pseudoLiterals[i] == s)
