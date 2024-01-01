@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 14:52:49 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/28 17:33:57 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:13:02 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void identify(Base &p)
 	try
 	{
 		A &newP = dynamic_cast<A &>(p);
-		std::cout << "Reference to a A class" << std::endl;
 		(void)newP;
+		std::cout << "Reference to a A class" << std::endl;
 		return;
 	}
 	catch (...)
@@ -64,8 +64,8 @@ void identify(Base &p)
 	try
 	{
 		B &newP = dynamic_cast<B &>(p);
-		std::cout << "Reference to a B class" << std::endl;
 		(void)newP;
+		std::cout << "Reference to a B class" << std::endl;
 		return;
 	}
 	catch (...)
@@ -74,8 +74,8 @@ void identify(Base &p)
 	try
 	{
 		C &newP = dynamic_cast<C &>(p);
-		std::cout << "References to a C class" << std::endl;
 		(void)newP;
+		std::cout << "References to a C class" << std::endl;
 		return;
 	}
 	catch (...)

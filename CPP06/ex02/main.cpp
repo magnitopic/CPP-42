@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 13:04:25 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/28 16:47:03 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:12:20 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 int main(void)
 {
-	/* code */
+	Base *randomClass = generate();
+	identify(randomClass);
+	identify(*randomClass);
 	return 0;
 }
