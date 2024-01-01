@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:19:17 by alaparic          #+#    #+#             */
-/*   Updated: 2023/12/29 20:39:25 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/01 12:37:51 by alaparic         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP_
 #define SCALARCONVERTER_HPP_
@@ -48,6 +48,5 @@ void handleFloat(std::string s);
 void handleDouble(std::string s);
 void handlePseudo(std::string s);
 void handleInvalid(std::string s);
-
 
 #endif
