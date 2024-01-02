@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
@@ -6,16 +6,16 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:19:17 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/02 12:38:47 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/02 13:24:02 by alaparic         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef SCALARCONVERTER_HPP_
 #define SCALARCONVERTER_HPP_
 
 #include <iostream>
 #include <limits>
-#include <regex>
+#include <sstream>
 
 enum e_type
 {
@@ -42,8 +42,6 @@ public:
 
 // program function declarations
 e_type getType(const std::string &s);
-template <typename T>
-std::string valueToString(T v);
 void handleChar(std::string s);
 void handleInt(std::string s);
 void handleFloat(std::string s);
@@ -52,5 +50,6 @@ void handlePseudo(std::string s);
 void handleInvalid(std::string s);
 bool checkInt(std::string &s);
 bool checkFloat(std::string &s);
+bool checkDouble(std::string &s);
 
 #endif

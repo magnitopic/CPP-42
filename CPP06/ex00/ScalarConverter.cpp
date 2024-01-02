@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:23:54 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/02 12:39:33 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/02 13:25:54 by alaparic         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include <iostream>
 #include <sstream>
@@ -41,23 +41,24 @@ void ScalarConverter::convert(std::string literal)
 	}
 }
 
-template <typename T>
-static std::string toStringForPrint(T v)
+static std::string floatToString(float f)
 {
 	std::ostringstream oss;
-	oss << v;
-	std::string newV = oss.str();
-	if (newV.find('.') == std::string::npos)
-		newV += ".0";
-	return newV;
+	oss << f;
+	std::string newF = oss.str();
+	if (newF.find('.') == std::string::npos)
+		newF += ".0";
+	return newF + "f";
 }
 
-template <typename T>
-std::string valueToString(T v)
+static std::string doubleToString(double d)
 {
 	std::ostringstream oss;
-	oss << v;
-	return oss.str();
+	oss << d;
+	std::string newD = oss.str();
+	if (newD.find('.') == std::string::npos)
+		newD += ".0";
+	return newD;
 }
 
 void handleChar(std::string s)
@@ -68,8 +69,8 @@ void handleChar(std::string s)
 
 	std::cout << "char: '" << s << "'" << std::endl;
 	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << toStringForPrint(f) << "f" << std::endl;
-	std::cout << "double: " << toStringForPrint(d) << std::endl;
+	std::cout << "float: " << floatToString(f) << std::endl;
+	std::cout << "double: " << doubleToString(d) << std::endl;
 }
 
 void handleInt(std::string s)
@@ -79,7 +80,9 @@ void handleInt(std::string s)
 	double d = std::atof(s.c_str());
 	char c = static_cast<char>(i);
 
-	if (std::isprint(c))
+	if (!checkInt(s))
+		std::cout << "char: Imposible" << std::endl;
+	else if (std::isprint(c))
 		std::cout << "char: '" << c << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
@@ -87,11 +90,14 @@ void handleInt(std::string s)
 		std::cout << "int: " << i << std::endl;
 	else
 		std::cout << "int: Imposible" << std::endl;
-	//if (checkFloat(valueToString(f)))
-		std::cout << "float: " << toStringForPrint(f) << "f" << std::endl;
-	/* else
-		std::cout << "float: Imposible" << std::endl; */
-	std::cout << "double: " << toStringForPrint(d) << std::endl;
+	if (checkFloat(s))
+		std::cout << "float: " << floatToString(f) << std::endl;
+	else
+		std::cout << "float: Imposible" << std::endl;
+	if (checkDouble(s))
+		std::cout << "double: " << doubleToString(d) << std::endl;
+	else
+		std::cout << "double: Imposible" << std::endl;
 }
 
 void handleFloat(std::string s)
@@ -101,13 +107,18 @@ void handleFloat(std::string s)
 	double d = std::atof(s.c_str());
 	char c = static_cast<char>(i);
 
-	if (std::isprint(c))
+	if (!checkInt(s))
+		std::cout << "char: Imposible" << std::endl;
+	else if (std::isprint(c))
 		std::cout << "char: '" << c << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << toStringForPrint(f) << "f" << std::endl;
-	std::cout << "double: " << toStringForPrint(d) << std::endl;
+	if (checkInt(s))
+		std::cout << "int: " << i << std::endl;
+	else
+		std::cout << "int: Imposible" << std::endl;
+	std::cout << "float: " << floatToString(f) << std::endl;
+	std::cout << "double: " << doubleToString(d) << std::endl;
 }
 
 void handleDouble(std::string s)
@@ -122,8 +133,8 @@ void handleDouble(std::string s)
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << toStringForPrint(f) << "f" << std::endl;
-	std::cout << "double: " << toStringForPrint(d) << std::endl;
+	std::cout << "float: " << floatToString(f) << std::endl;
+	std::cout << "double: " << doubleToString(d) << std::endl;
 }
 
 void handlePseudo(std::string s)
