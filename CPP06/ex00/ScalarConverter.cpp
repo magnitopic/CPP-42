@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:23:54 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/02 13:25:54 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/02 16:35:30 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -80,7 +80,7 @@ void handleInt(std::string s)
 	double d = std::atof(s.c_str());
 	char c = static_cast<char>(i);
 
-	if (!checkInt(s))
+	if (!checkInt(s) || i < 0)
 		std::cout << "char: Imposible" << std::endl;
 	else if (std::isprint(c))
 		std::cout << "char: '" << c << "'" << std::endl;
@@ -107,7 +107,7 @@ void handleFloat(std::string s)
 	double d = std::atof(s.c_str());
 	char c = static_cast<char>(i);
 
-	if (!checkInt(s))
+	if (!checkInt(s) || i < 0)
 		std::cout << "char: Imposible" << std::endl;
 	else if (std::isprint(c))
 		std::cout << "char: '" << c << "'" << std::endl;
@@ -128,7 +128,7 @@ void handleDouble(std::string s)
 	double d = std::atof(s.c_str());
 	char c = static_cast<char>(i);
 
-	if (std::isprint(c))
+	if (!checkInt(s) || i < 0)
 		std::cout << "char: '" << c << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
