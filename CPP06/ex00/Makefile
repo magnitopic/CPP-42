@@ -3,7 +3,8 @@ NAME			=	scalarConverter
 
 SRC	=	main.cpp \
 		ScalarConverter.cpp \
-		getType.cpp
+		getType.cpp \
+		checkValues.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
