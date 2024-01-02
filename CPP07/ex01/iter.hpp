@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:01:05 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/01 14:59:37 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/02 18:45:46 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 template <typename T>
-void iter(T *array, int len, void (*f)(T &))
+void iter(T *array, int len, void (*f)(const T &))
 {
 	for (int i = 0; i < len; i++)
 		f(array[i]);
