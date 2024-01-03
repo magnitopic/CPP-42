@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
@@ -6,28 +6,32 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:04:31 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/02 19:53:46 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:54:40 by alaparic         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef EASYFIND_HPP_
 #define EASYFIND_HPP_
 
 #include <iostream>
 
-template <typename T>
-bool easyfind(T array, int pos)
+class NotFoundException : public std::exception
 {
-	for (int i = 0; int array.length(); i++)
+public:
+	const char *what() const throw()
 	{
-		if (array[i] == pos)
-		{
-			std::cout << "Found!" << std::endl;
-			return true;
-		}
+		return "\033[0;31mElement not found\033[0m";
 	}
-	std::cout << "Not found..." << std::endl;
-	return false;
+};
+
+template <typename T>
+void easyfind(T &array, int val)
+{
+	typename T::iterator it;
+	it = std::find(array.begin(), array.end(), val);
+	if (it == array.end() || *it != val)
+		throw NotFoundException();
+	std::cout << "\033[0;32mElement '" << val << "' found!\033[0m" << std::endl;
 }
 
 #endif

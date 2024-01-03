@@ -1,5 +1,5 @@
-# CPP08-ex08
-NAME			=	whatever
+# CPP08-ex00
+NAME			=	easyfind
 
 SRC	=	main.cpp
 OBJS			= $(SRC:.cpp=.o)
@@ -17,19 +17,19 @@ RESET			=	\033[0m
 
 # Rules
 all:		$(NAME)
-			@printf "$(BLUE)==> $(CYAN)CPP08-ex08 compiled ✅\n\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP08-ex00 compiled ✅\n\n$(RESET)"
 
 $(NAME):	$(OBJS)
 			@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 			@$(RM) $(OBJS)
-			@printf "\n$(BLUE)==> $(RED)Removed CPP08-ex08 🗑️\n$(RESET)"
+			@printf "\n$(BLUE)==> $(RED)Removed CPP08-ex00 🗑️\n$(RESET)"
 
 fclean:		clean
 			@$(RM) $(NAME)
 
 re:			fclean all
-			@printf "$(BLUE)==> $(CYAN)CPP08-ex08 recompiled 🔄\n$(RESET)"
+			@printf "$(BLUE)==> $(CYAN)CPP08-ex00 recompiled 🔄\n$(RESET)"
 
 .PHONY:		all clean fclean re
