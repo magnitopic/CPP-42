@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:57:29 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/03 15:42:11 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:44:25 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,6 +14,23 @@
 #include "Span.hpp"
 
 int main()
+{
+	int len = 50000;
+
+	Span sp = Span(len);
+	srand(time(NULL));
+	for (int i = 0; i < len; i++)
+	{
+		int rnd = rand() % 100;
+		sp.addNumber(rnd);
+	}
+	sp.print();
+	std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
+	std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+	return 0;
+}
+
+/* int main()
 {
 	Span sp = Span(5);
 	sp.addNumber(6);
@@ -24,4 +41,4 @@ int main()
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 	return 0;
-}
+} */

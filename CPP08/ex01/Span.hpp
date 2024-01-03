@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:58:07 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/03 15:45:53 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:32:12 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -18,6 +18,8 @@
 #include <iterator>
 #include <limits>
 #include <algorithm>
+#include <time.h>
+#include <numeric>
 
 class Span
 {

@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 12:25:48 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/03 15:54:59 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:42:57 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -50,19 +50,17 @@ void Span::addNumbers(std::vector<int> vector)
 
 int Span::shortestSpan()
 {
-	int shortest = std::numeric_limits<int>::max();
-
 	if (this->v.size() <= 1)
 		throw SpanTooSmallException();
-	for (std::vector<int>::const_iterator it = this->v.begin(); it != this->v.end(); ++it)
+	int result[this->v.size()];
+	std::adjacent_difference(this->v.begin(), this->v.end(), result);
+	std::vector<int> validValues;
+	for (size_t i = 0; i < this->v.size(); i++)
 	{
-		for (std::vector<int>::const_iterator it2 = this->v.begin(); it2 != this->v.end(); ++it2)
-		{
-			if (*it - *it2 > 0 && *it - *it2 < shortest)
-				shortest = *it - *it2;
-		}
+		if (result[i] >= 0)
+			validValues.push_back(result[i]);
 	}
-	return shortest;
+	return *std::min_element(validValues.begin(), validValues.end());
 }
 
 int Span::longestSpan()
@@ -77,7 +75,8 @@ int Span::longestSpan()
 void Span::print()
 {
 	for (std::vector<int>::const_iterator it = this->v.begin(); it != this->v.end(); ++it)
-		std::cout << *it << std::endl;
+		std::cout << *it << ", ";
+	std::cout << std::endl;
 }
 
 const char *Span::SpanFullExpection::chat() const throw()
