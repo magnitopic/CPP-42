@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
@@ -6,11 +6,10 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:13:04 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/03 18:25:41 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/04 13:06:11 by alaparic         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
-#include <iostream>
 #include "MutantStack.hpp"
 
 static void original_main()
@@ -49,7 +48,6 @@ static void altered_main()
 	mstack.push_back(3);
 	mstack.push_back(5);
 	mstack.push_back(737);
-	//[...]
 	mstack.push_back(0);
 	std::vector<int>::iterator it = mstack.begin();
 	std::vector<int>::iterator ite = mstack.end();
@@ -63,6 +61,16 @@ static void altered_main()
 	std::vector<int> s = mstack;
 }
 
+static void diferentTests()
+{
+	MutantStack<int> mstack;
+	srand(time(NULL));
+	for (int i = 0; i < rand() % 21; i++)
+		mstack.push(rand() % 100);
+	std::cout << "Length: " << mstack.size() << std::endl;
+	//MutantStack<int>::const_iterator it = mstack.begin();
+}
+
 // original main
 int main()
 {
@@ -71,5 +79,8 @@ int main()
 	std::cout << "_____________________" << std::endl
 			  << "Altered main:" << std::endl;
 	altered_main();
+	std::cout << "_____________________" << std::endl
+			  << "Different main:" << std::endl;
+	diferentTests();
 	return 0;
 }
