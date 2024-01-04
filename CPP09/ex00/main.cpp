@@ -1,42 +1,27 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 13:35:02 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/04 15:10:50 by alaparic         ###   ########.fr       */
+/*   Created: 2024/01/04 11:33:11 by alaparic          #+#    #+#             */
+/*   Updated: 2024/01/04 18:39:05 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef WHATEVER_HPP_
-#define WHATEVER_HPP_
-
 #include <iostream>
+#include <algorithm>
 
-template<typename T>
-void swap(T &a, T &b)
+bool validateData()
 {
-	T tmp = a;
-	a = b;
-	b = tmp;
+	
 }
 
-template<typename T>
-T min(T &a, T &b)
+int main(int argc, char const *argv[])
 {
-	if (a < b)
-		return a;
-	return b;
+	if (argc != 2)
+		std::cerr << "\033[0;31mNumber of arguments invalid\033[0m" << std::endl;
+	
+	return 0;
 }
-
-template<typename T>
-T max(T &a, T &b)
-{
-	if (a > b)
-		return a;
-	return b;
-}
-
-#endif

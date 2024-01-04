@@ -1,42 +1,29 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 13:35:02 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/04 15:10:50 by alaparic         ###   ########.fr       */
+/*   Created: 2024/01/04 14:45:09 by alaparic          #+#    #+#             */
+/*   Updated: 2024/01/04 14:45:25 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef WHATEVER_HPP_
-#define WHATEVER_HPP_
+#ifndef BITCOINEXCHANGE_HPP_
+#define BITCOINEXCHANGE_HPP_
 
 #include <iostream>
 
-template<typename T>
-void swap(T &a, T &b)
+class BitcoinExchange
 {
-	T tmp = a;
-	a = b;
-	b = tmp;
-}
+public:
+	BitcoinExchange();
+	BitcoinExchange(const BitcoinExchange &copy);
+	BitcoinExchange &operator=(const BitcoinExchange &assign);
+	~BitcoinExchange();
 
-template<typename T>
-T min(T &a, T &b)
-{
-	if (a < b)
-		return a;
-	return b;
-}
-
-template<typename T>
-T max(T &a, T &b)
-{
-	if (a > b)
-		return a;
-	return b;
-}
+	
+};
 
 #endif
