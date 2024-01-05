@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:13:04 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/04 13:06:11 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:07:07 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -67,8 +67,17 @@ static void diferentTests()
 	srand(time(NULL));
 	for (int i = 0; i < rand() % 21; i++)
 		mstack.push(rand() % 100);
-	std::cout << "Length: " << mstack.size() << std::endl;
-	//MutantStack<int>::const_iterator it = mstack.begin();
+	std::cout << "Length: " << mstack.size() << std::endl
+			  << "reverse iterator:"
+			  << std::endl;
+	for (MutantStack<int>::reverse_iterator it = mstack.rbegin(); it != mstack.rend(); ++it)
+		std::cout << *it << ", ";
+	std::cout << std::endl
+			  << "normal iterator"
+			  << std::endl;
+	for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
+		std::cout << *it << ", ";
+	std::cout << std::endl;
 }
 
 // original main

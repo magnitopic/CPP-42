@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:34:01 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/04 12:54:33 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/05 11:22:28 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -34,7 +34,6 @@ public:
 	{
 		if (this != &assign)
 			*this->c = assign.c;
-
 		return (*this);
 	}
 
