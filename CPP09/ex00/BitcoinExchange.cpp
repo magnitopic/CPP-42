@@ -6,27 +6,68 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:38 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/04 18:42:44 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:08:39 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include <iostream>
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange()
+void validateLine(std::string line, char separation, int lineN)
 {
+	if (lineN == 1)
+		return;
+	if (line.find(separation) == std::string::npos)
+		throw 5;
+	
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
+static std::map<std::string, double> readDB()
 {
-	*this = copy;
+	std::string dbFile = "data.csv";
+	std::ifstream dataFile(dbFile);
+	if (!dataFile.is_open())
+		throw 20;
+	std::string line;
+	int i = 0;
+	while (dataFile)
+	{
+		char a = dataFile.get();
+		line += a;
+		if (a == '\n')
+		{
+			i++;
+			validateLine(line, ',', i);
+			line = "";
+		}
+	}
+	std::map<std::string, double> test;
+	return test;
 }
 
-BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &assign)
+std::string readFile(char *fileName)
 {
-	if (this != &assign)
+	std::string fileContent;
 
-		return *this;
+	std::ifstream dataFile(fileName);
+	if (!dataFile.is_open())
+		throw 20;
+	while (dataFile)
+		fileContent += dataFile.get();
+	fileContent = fileContent.substr(0, fileContent.size() - 1); // This removes EOF char at the end
+
+	return fileContent;
 }
 
-BitcoinExchange::~BitcoinExchange() {}
+/* std::map<std::string, double> parseData(std::string fileContent)
+{
+
+} */
+
+std::map<std::string, double> getFileData(char *fileName)
+{
+	std::map<std::string, double> dbValues = readDB();
+	std::string fileContent = readFile(fileName);
+	// std::map<std::string, double> parsedFileData = parseData(fileContent);
+	// return parsedFileData;
+	return dbValues;
+}
