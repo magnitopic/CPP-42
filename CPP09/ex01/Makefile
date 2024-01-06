@@ -1,8 +1,8 @@
 # CPP09-ex00
-NAME			=	btc
+NAME			=	RPN
 
 SRC	=	main.cpp \
-		BitcoinExchange.cpp
+		RPN.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
