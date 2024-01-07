@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:33:11 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/05 12:15:54 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/06 20:43:29 by alaparic         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
@@ -21,11 +21,11 @@ int main(int argc, char *argv[])
 	}
 	try
 	{
-		std::map<std::string, double> fileContent = getFileData(argv[1]);
+		bitcoinExchange(argv[1]);
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	// 
 	return 0;
