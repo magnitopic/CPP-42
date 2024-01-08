@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 21:13:25 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/08 17:00:31 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:07:48 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <list>
 #include <exception>
 #include <sstream>
+#include <ctime>
 
 std::vector<int> PmergeMe(int argc, char **argv);
 std::list<int> mergeInsertList(std::list<int> vecValues);
