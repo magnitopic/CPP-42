@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 21:13:06 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/07 21:41:09 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/08 13:00:53 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,6 @@ std::list<int> valuesToList(int argc, char **argv)
 
 void PmergeMe(int argc, char **argv)
 {
-
-	// merge insertion sort algorithm
-	// using different containers for the different algorithms
-	if (argc < 10)
-	{
-		std::vector<int> vecValues = valuesToVector(argc, argv);
-	}
-	else
-	{
-		std::list<int> lstValues = valuesToList(argc, argv);
-	}
+	std::vector<int> vecValues = valuesToVector(argc, argv);
+	std::list<int> lstValues = valuesToList(argc, argv);
 }

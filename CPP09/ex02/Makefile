@@ -2,7 +2,9 @@
 NAME			=	PmergeMe
 
 SRC	=	main.cpp \
-		PmergeMe.cpp
+		PmergeMe.cpp \
+		mergeInsertList.cpp \
+		mergeInsertVector.cpp
 OBJS			= $(SRC:.cpp=.o)
 
 # Compiler
