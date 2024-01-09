@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:38 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/07 10:42:21 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/08 22:11:59 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ std::map<std::string, double> getDbValues()
 
 	while (std::getline(iss, line, '\n'))
 	{
-		if (line == "date,exchange_rate")
+		if (line == "date,exchange_rate" || line == "")
 			continue;
 		if (line.find(',') != std::string::npos)
 		{
@@ -71,12 +71,16 @@ std::string readFile(std::string fileName)
 void printValue(std::string key, double value,
 				std::map<std::string, double> dbValues)
 {
-	std::
-	std::cout << key << " => " << value <<  << std::endl;
+	double exchange_rate;
+
+	exchange_rate = dbValues[key] * value;
+
+	std::cout << key << " => " << value << " = " << exchange_rate << std::endl;
 }
 
 bool validateDate(std::string date)
 {
+	std::cout << "|" << date << "| " << date.size() << std::endl;
 	// format: YYYY-MM-DD
 	if (date.length() != 10)
 		return false;
@@ -102,22 +106,24 @@ void parseFile(std::string data,
 
 	while (std::getline(iss, line, '\n'))
 	{
+		if (line == "date | value" || line == "")
+			continue;
 		if (line.find('|') != std::string::npos)
 		{
 			std::istringstream iss2(line);
 			std::getline(iss2, key, '|');
+			key = key.substr(0, key.size() - 1);
 			std::string valueStr;
 			std::getline(iss2, valueStr, '|');
 			std::stringstream convert(valueStr);
 			convert >> value;
-			std::cout << value << std::endl;
 			if (convert.fail())
 				std::cout << "\033[0;31mError: invalid value\033[0m" << std::endl;
 			else if (value < 0)
 				std::cout << "\033[0;31mError: not a positive number\033[0m" << std::endl;
 			else if (value > 1000)
 				std::cout << "\033[0;31mError: too large a number\033[0m" << std::endl;
-			else if (validateDate(key))
+			else if (!validateDate(key))
 				std::cout << "\033[0;31mError: invalid date format\033[0m" << std::endl;
 			else
 				printValue(key, value, dbValues);
@@ -126,16 +132,3 @@ void parseFile(std::string data,
 			std::cout << "\033[0;31mError: bad input => \033[0m" << line << std::endl;
 	}
 }
-
-/* {
-	std::map<std::string, double> parsedData;
-	std::istringstream iss(data);
-	std::string key;
-	std::string value;
-
-	while (std::getline(iss, key, '\n'))
-	{
-		std::cout <<  << std::endl;
-	}
-}
- */
