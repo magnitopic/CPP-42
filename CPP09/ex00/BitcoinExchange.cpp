@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:38 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/08 22:11:59 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:34:36 by alaparic         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "BitcoinExchange.hpp"
 
@@ -42,6 +42,8 @@ std::map<std::string, double> getDbValues()
 			convert >> value;
 			if (convert.fail())
 				throw std::runtime_error("\033[0;31mError: Invalid value in database\033[0m");
+			else if (!validateDate(key))
+				throw std::runtime_error("\033[0;31mError: Invalid date value in database\033[0m");
 			else
 				dbValues[key] = value;
 		}
@@ -68,19 +70,23 @@ std::string readFile(std::string fileName)
 	return fileContent;
 }
 
-void printValue(std::string key, double value,
-				std::map<std::string, double> dbValues)
+void printValue(std::string key, double value, std::map<std::string, double> dbValues)
 {
 	double exchange_rate;
+	std::map<std::string, double>::iterator low, prev;
 
-	exchange_rate = dbValues[key] * value;
+	low = dbValues.upper_bound(key);
+	if (low->first != dbValues.cbegin()->first)
+		prev = std::prev(low);
+	else
+		prev = low;
+	exchange_rate = prev->second * value;
 
 	std::cout << key << " => " << value << " = " << exchange_rate << std::endl;
 }
 
 bool validateDate(std::string date)
 {
-	std::cout << "|" << date << "| " << date.size() << std::endl;
 	// format: YYYY-MM-DD
 	if (date.length() != 10)
 		return false;
