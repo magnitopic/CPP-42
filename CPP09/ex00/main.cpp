@@ -6,7 +6,7 @@
 /*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:33:11 by alaparic          #+#    #+#             */
-/*   Updated: 2024/01/06 20:43:29 by alaparic         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:57:09 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int main(int argc, char *argv[])
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	// 
 	return 0;
 }
